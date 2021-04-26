@@ -5,7 +5,10 @@ import { getAllShows } from '@l/graphcms'
 
 export default function Shows({ shows }) {
   return (
-    <Layout title="next-graphcms-shows / Shows">
+    <Layout
+      title="next-graphcms-shows / Shows"
+      maxWidth="900px"
+    >
       <Title>Shows</Title>
       <Grid>
         {shows.map(show => (
