@@ -31,6 +31,10 @@ const CardStyle = css`
     font-size: 1.25rem;
     line-height: 1.5;
   }
+
+  @media (min-width: 600px) {
+    margin: 1rem;
+  }
 `
 
 const StyledGrid = styled.div`
@@ -46,7 +50,6 @@ const StyledGrid = styled.div`
     width: auto;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-around;
   }
 `
 
