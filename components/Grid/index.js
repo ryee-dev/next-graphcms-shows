@@ -46,7 +46,7 @@ const StyledGrid = styled.div`
     width: auto;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
   }
 `
 
