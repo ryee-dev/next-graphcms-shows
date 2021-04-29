@@ -33,7 +33,7 @@ const CardStyle = css`
   }
 
   @media (min-width: 600px) {
-    margin: 0.5rem;
+    margin: 1rem;
   }
 `
 
@@ -47,10 +47,9 @@ const StyledGrid = styled.div`
   padding: 1rem;
 
   @media (min-width: 600px) {
-    width: auto;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
   }
 `
 
