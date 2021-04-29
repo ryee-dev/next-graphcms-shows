@@ -12,19 +12,16 @@ const CardStyle = css`
   border: 1px solid var(--gallery-grey);
   border-radius: 10px;
   transition: 150ms ease;
-
   :hover,
   :focus,
   :active {
     color: #000;
     background-color: var(--gallery-grey);
   }
-
   h3 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
   }
-
   p {
     margin: 0;
     font-size: 1.25rem;
@@ -39,7 +36,6 @@ const StyledGrid = styled.div`
   flex-wrap: wrap;
   margin-top: 1rem;
   width: 100%;
-
   @media (min-width: 600px) {
     width: auto;
     flex-direction: row;
