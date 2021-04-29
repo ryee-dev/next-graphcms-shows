@@ -40,6 +40,19 @@ const Portrait = ({ images = [] }) => {
 }
 
 export default function Shows({ show }) {
+  
+  function checkProtocol(link)
+  {
+    if (link.indexOf("http://") == 0 || link.indexOf("https://") == 0) {
+      console.log("The link has http or https.");
+      return true;
+    }
+    else{
+      console.log("The link doesn't have http or https.");
+      return false;
+    }
+  }
+  
   return (
     <Layout title={`${show.title} / next-graphcms-shows`} maxWidth="900px" padding="0 2em">
       <Title>{show.title}</Title>
@@ -58,10 +71,10 @@ export default function Shows({ show }) {
           <Portrait images={artist.images} />
 
           <FlexyRow justify="flex-start">
-            <a href={artist.webUrl} target="_blank">Website</a>
-            <a href={artist.facebookUrl} target="_blank">Facebook</a>
-            <a href={artist.instagramUrl} target="_blank">Instagram</a>
-            <a href={artist.youTubeUrl} target="_blank">YouTube</a>
+            {artist.webUrl && <a href={checkProtocol(artist.webUrl) ? artist.webUrl : `https://${artist.webUrl}`} target="_blank">Website</a>}
+            {artist.facebookUrl && <a href={artist.facebookUrl} target="_blank">Facebook</a>}
+            {artist.instagramUrl && <a href={artist.instagramUrl} target="_blank">Instagram</a>}
+            {artist.youTubeUrl && <a href={artist.youTubeUrl} target="_blank">YouTube</a>}
           </FlexyRow>
 
           <Markdown source={artist.bio} />
