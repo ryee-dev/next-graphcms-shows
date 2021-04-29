@@ -23,7 +23,8 @@ export default function Layout({
 
       <Main
         maxWidth={maxWidth}
-        alignItems={alignItems}>
+        alignItems={alignItems}
+      >
         {children}
       </Main>
 

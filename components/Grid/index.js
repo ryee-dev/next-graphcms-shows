@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import styled, { css } from 'styled-components'
-import { truncateText } from '@l/utils'
+import styled, {css} from 'styled-components'
+import {truncateText} from '@l/utils'
 
 const CardStyle = css`
-  margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
   text-align: left;
@@ -12,6 +11,8 @@ const CardStyle = css`
   border: 1px solid var(--gallery-grey);
   border-radius: 10px;
   transition: 150ms ease;
+  width: 100%;
+  margin: 0 0 1rem 0;
 
   :hover,
   :focus,
@@ -39,14 +40,17 @@ const StyledGrid = styled.div`
   flex-wrap: wrap;
   margin-top: 1rem;
   width: 100%;
+  padding: 1rem;
 
   @media (min-width: 600px) {
     width: auto;
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
   }
 `
 
-export function Card({ children, header, href, title }) {
+export function Card({children, header, href, title}) {
   return href ? (
     <Link href={href} passHref>
       <a css={CardStyle} title={title}>
@@ -62,7 +66,7 @@ export function Card({ children, header, href, title }) {
   )
 }
 
-export function Grid({ children }) {
+export function Grid({children}) {
   return (
     <StyledGrid>
       {children}
