@@ -28,7 +28,7 @@ The project follows typical [Next.js] structure. Reusable React components resid
 ./
 ┣ components/
 ┃ ┣ Description
-┃ ┣ Grid
+┃ ┣ CardArrangement
 ┃ ┣ Layout
 ┃ ┗ Title
 ┣ lib/
