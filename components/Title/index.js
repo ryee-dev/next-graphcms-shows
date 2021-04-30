@@ -7,7 +7,7 @@ const H1 = styled.h1`
   text-align: ${(p) => p.textAlign};
 
   @media (min-width: 500px) {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 `;
 
