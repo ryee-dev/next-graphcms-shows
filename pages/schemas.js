@@ -1,5 +1,5 @@
 import Layout from '@c/Layout'
-import { Grid, Card } from '@c/Grid'
+import { Grid, Card } from '@c/CardArrangement'
 import { Title } from '@c/Title'
 
 export default function Schemas() {

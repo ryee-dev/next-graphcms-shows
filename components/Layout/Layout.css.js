@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -7,10 +7,11 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: ${({ background, theme }) => background ? background : theme.background};
+  background: ${({ background, theme }) =>
+    background ? background : theme.background};
   color: ${(p) => p.color};
   padding: ${(p) => p.padding};
-`
+`;
 
 export const Main = styled.main`
   flex: 1;
@@ -19,7 +20,7 @@ export const Main = styled.main`
   justify-content: center;
   align-items: ${(p) => p.alignItems};
   max-width: ${(p) => p.maxWidth};
-`
+`;
 
 export const Footer = styled.footer`
   width: 100%;
@@ -34,4 +35,4 @@ export const Footer = styled.footer`
     margin-left: 4px;
     text-decoration: underline;
   }
-`
+`;

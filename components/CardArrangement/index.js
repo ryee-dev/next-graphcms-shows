@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import styled, {css} from 'styled-components'
-import {truncateText} from '@l/utils'
+import Link from 'next/link';
+import styled, { css } from 'styled-components';
+import { truncateText } from '@l/utils';
 
 const CardStyle = css`
   flex-basis: 45%;
@@ -35,7 +35,7 @@ const CardStyle = css`
   @media (min-width: 600px) {
     margin: 1rem;
   }
-`
+`;
 
 const StyledGrid = styled.div`
   display: flex;
@@ -53,7 +53,23 @@ const StyledGrid = styled.div`
   }
 `;
 
-export function Card({children, header, href, title}) {
+const StyledList = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  //margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+
+  //@media (min-width: 600px) {
+  //  flex-direction: row;
+  //  align-items: flex-start;
+  //  justify-content: space-between;
+  //}
+`;
+
+function Card({ children, header, href, title }) {
   return href ? (
     <Link href={href} passHref>
       <a css={CardStyle} title={title}>
@@ -66,13 +82,15 @@ export function Card({children, header, href, title}) {
       <h3 title={header}>{truncateText(header, 22)} &rarr;</h3>
       {children}
     </div>
-  )
+  );
 }
 
-export function Grid({children}) {
-  return (
-    <StyledGrid>
-      {children}
-    </StyledGrid>
-  )
+function Grid({ children }) {
+  return <StyledGrid>{children}</StyledGrid>;
 }
+
+function List({ children }) {
+  return <StyledList>{children}</StyledList>;
+}
+
+export { Card, Grid, List };
