@@ -2,10 +2,11 @@ import Markdown from '../../components/Markdown';
 import styled from 'styled-components';
 import Layout from '@c/Layout';
 import FlexyRow from '@c/FlexyRow';
+import { Title } from '@c/Title';
 import { getArtistBySlug } from '@l/graphcms';
 import Portrait from '../../components/Portrait';
 
-const ArtistName = styled.h2`
+const ArtistName = styled(Title)`
   text-align: center;
 `;
 
