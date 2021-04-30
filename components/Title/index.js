@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const H1 = styled.h1`
-  margin: 0.5em 0;
+  margin: 0.5em 0 0.25em 0;
   line-height: 1.15;
   font-size: 3rem;
   text-align: ${(p) => p.textAlign};
