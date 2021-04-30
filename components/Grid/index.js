@@ -42,7 +42,7 @@ const StyledGrid = styled.div`
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  //margin-top: 1rem;
   width: 100%;
   padding: 1rem;
 
@@ -51,7 +51,7 @@ const StyledGrid = styled.div`
     align-items: flex-start;
     justify-content: space-between;
   }
-`
+`;
 
 export function Card({children, header, href, title}) {
   return href ? (

@@ -15,10 +15,19 @@ const HeaderContainer = styled.div`
   .sort-wrapper {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 1.5rem;
+    justify-content: space-between;
+    padding: 1rem 1.5rem 0 1.5rem;
     width: 100%;
-    //padding-top: 1rem;
+
+    .arrow-icon {
+      margin-left: 1rem;
+    }
+
+    .sort-direction {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     button {
       border-radius: 10px;
@@ -64,33 +73,55 @@ export default function Shows({ shows }) {
       <HeaderContainer>
         <Title>Shows</Title>
         <div className="sort-wrapper">
+          <div>
+            <button
+              className="sort-btn"
+              style={
+                isTitle
+                  ? { backgroundColor: 'white', color: 'black' }
+                  : { backgroundColor: 'transparent', color: 'white' }
+              }
+              onClick={() => handleSortByTitle(!isAscending)}
+            >
+              Title
+            </button>
+            <button
+              className="sort-btn"
+              style={
+                !isTitle
+                  ? { backgroundColor: 'white', color: 'black' }
+                  : { backgroundColor: 'transparent', color: 'white' }
+              }
+              onClick={() => handleSortByStartTime(!isAscending)}
+            >
+              Start Time
+            </button>
+          </div>
+
           <button
-            className="sort-btn"
-            style={
-              isTitle
-                ? { backgroundColor: 'white', color: 'black' }
-                : { backgroundColor: 'transparent', color: 'white' }
-            }
-            onClick={() => handleSortByTitle(!isAscending)}
-          >
-            Title
-          </button>
-          <button
-            className="sort-btn"
-            style={
-              !isTitle
-                ? { backgroundColor: 'white', color: 'black' }
-                : { backgroundColor: 'transparent', color: 'white' }
-            }
-            onClick={() => handleSortByStartTime(!isAscending)}
-          >
-            Start Time
-          </button>
-          <button
-            className="sort-btn"
+            className="sort-direction"
             onClick={() => setIsAscending(!isAscending)}
+            // style={{ display: 'flex' }}
           >
-            {isAscending ? 'Ascending' : 'Descending'}
+            {isAscending ? 'Ascending' : 'Descending'}{' '}
+            <svg
+              className="arrow-icon"
+              width="18"
+              height="11"
+              viewBox="0 0 18 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={
+                isAscending
+                  ? { transform: 'rotate(180deg)' }
+                  : { transform: 'rotate(0deg)' }
+              }
+            >
+              <path
+                d="M10.5179 9.45104L17.7275 2.24076L16.3318 0.846069L9.12187 8.05568L2.24131 1.17479L0.845947 2.56981L9.12187 10.8461L10.5179 9.45104Z"
+                fill="white"
+              />
+            </svg>
           </button>
         </div>
       </HeaderContainer>

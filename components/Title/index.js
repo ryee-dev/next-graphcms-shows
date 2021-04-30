@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const H1 = styled.h1`
   margin: 0.5em 0 0.25em 0;
@@ -9,20 +9,18 @@ const H1 = styled.h1`
   @media (min-width: 500px) {
     font-size: 4rem;
   }
-`
+`;
 
 const P = styled.p`
   font-size: 1.5rem;
   line-height: 1.5;
   text-align: ${(p) => p.textAlign};
-`
+`;
 
-export const Title = ({ children, textAlign = 'center' }) =>
-  <H1 textAlign={textAlign}>
-    {children}
-  </H1>
+export const Title = ({ children, textAlign = 'center' }) => (
+  <H1 textAlign={textAlign}>{children}</H1>
+);
 
-export const SubTitle = ({ children, textAlign = 'center' }) =>
-  <P textAlign={textAlign}>
-    {children}
-  </P>
+export const SubTitle = ({ children, textAlign = 'center' }) => (
+  <P textAlign={textAlign}>{children}</P>
+);
