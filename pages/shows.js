@@ -32,28 +32,32 @@ const HeaderContainer = styled.div`
 `;
 
 export default function Shows({ shows }) {
-  const [isDescending, setIsDescending] = useState(true);
-  const handleSortBy = (option, descending) => {
-    let sorted;
-    if (option === 'title') {
-      // if (descending === isDescending) {
-      //   setIsDescending(!isDescending);
-      // }
-      sorted = shows.sort((a, b) => (a.title > b.title ? 1 : -1));
-      setIsDescending(!isDescending);
-      console.log(isDescending);
-      return descending ? sorted : sorted.reverse();
-    } else {
-    }
+  const [isAscending, setIsAscending] = useState(false);
+  const [isTitle, setIsTitle] = useState(false);
+
+  const handleSortByTitle = (descending) => {
+    setIsTitle(true);
+    let sorted = shows.sort((a, b) => (a.title > b.title ? 1 : -1));
+    console.log('title', `isAscending: ${isAscending}`, sorted);
+    return descending ? sorted : sorted.reverse();
+  };
+
+  const handleSortByStartTime = (descending) => {
+    setIsTitle(false);
+    let sorted = shows.sort((a, b) =>
+      a.scheduledStartTime > b.scheduledStartTime ? -1 : 1
+    );
+    console.log('start time', `isAscending: ${isAscending}`, sorted);
+    return descending ? sorted : sorted.reverse();
   };
 
   useEffect(() => {
-    // shows.sort((a, b) => (a.title > b.title ? 1 : -1));
-    // console.log(shows);
-
-    // console.log(handleSortBy('title', isDescending));
-    handleSortBy('title', isDescending);
-  }, []);
+    // handleSortBy(isTitle, isDescending);
+    // setIsAscending(false);
+    isTitle
+      ? handleSortByTitle(isAscending)
+      : handleSortByStartTime(isAscending);
+  }, [isTitle, isAscending]);
 
   return (
     <Layout title="next-graphcms-shows / Shows" maxWidth="800px">
@@ -62,11 +66,32 @@ export default function Shows({ shows }) {
         <div className="sort-wrapper">
           <button
             className="sort-btn"
-            onClick={() => handleSortBy('title', isDescending)}
+            style={
+              isTitle
+                ? { backgroundColor: 'white', color: 'black' }
+                : { backgroundColor: 'transparent', color: 'white' }
+            }
+            onClick={() => handleSortByTitle(!isAscending)}
           >
-            Alphabetically (toggle order)
+            Title
           </button>
-          <button className="sort-btn">Start Time</button>
+          <button
+            className="sort-btn"
+            style={
+              !isTitle
+                ? { backgroundColor: 'white', color: 'black' }
+                : { backgroundColor: 'transparent', color: 'white' }
+            }
+            onClick={() => handleSortByStartTime(!isAscending)}
+          >
+            Start Time
+          </button>
+          <button
+            className="sort-btn"
+            onClick={() => setIsAscending(!isAscending)}
+          >
+            {isAscending ? 'Ascending' : 'Descending'}
+          </button>
         </div>
       </HeaderContainer>
       <Grid>
