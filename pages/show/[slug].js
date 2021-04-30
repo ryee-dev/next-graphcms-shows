@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Layout from '@c/Layout';
 import FlexyRow from '@c/FlexyRow';
@@ -12,9 +12,21 @@ const ArtistName = styled.h2`
   text-align: center;
 `;
 
-
-
 export default function Shows({ show }) {
+  const router = useRouter();
+
+  if (!router.isFallback && !show?.slug) {
+    // return <ErrorPage statusCode={404} />;
+    return (
+      <Layout>
+        <Title>404</Title>
+        <p style={{ fontSize: '1.6rem', marginTop: '2rem' }}>
+          Nothing to see here!
+        </p>
+      </Layout>
+    );
+  }
+
   return (
     <Layout
       title={`${show.title} / next-graphcms-shows`}
